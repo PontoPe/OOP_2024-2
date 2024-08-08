@@ -1,23 +1,19 @@
 public class Player {
+
+//    atributos:
     public static int getTeam;
     private String nome;
     private int vida;
     private int team;
     private Arma arma;
 
-    public Player(String nome, int vida, int team, Arma arma) {
-        this.nome = nome;
-        this.vida = vida;
-        this.team = team;
-        this.arma = arma;
-    }
-
+//    metodos:
     public void atirar() throws InterruptedException {
         arma.atirar();
     }
     
     public int getTeam() {
-        return team;
+        return this.team;
     }
 
     public void equipar() {
