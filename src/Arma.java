@@ -1,13 +1,14 @@
 import static java.lang.Thread.sleep;
 
 public class Arma {
-    private String nome;
-    private int dano;
-    private int capacidade;
-    private int maxRange;
-    private int team;
-    private int tempoRecarga;
-    private int currentTeam;
+    public String nome;
+    public int dano;
+    public int capacidade;
+    public int maxRange;
+    public int team;
+    public int tempoRecarga;
+    public int fireRate;
+    public int currentTeam;
     public int currentTeam() {
         Player.getTeam = currentTeam;
         return currentTeam;
@@ -33,6 +34,7 @@ public class Arma {
         if (this.team == currentTeam) {
             System.out.println(nome + " equipavel no seu time");
             System.out.println("Equipando " + nome + "...");
+            Player.arma = this;
         } else {
             System.out.println(nome + " não equipavel no seu time");
         }
