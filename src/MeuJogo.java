@@ -1,8 +1,10 @@
 public class MeuJogo{
     public static void main(String[] args) {
 
-        Team Spetznas = new Team("Spetznas", 0);
-        Team TaskForce = new Team("TaskForce", 0);
+        Team Spetznas = new Team();
+        Spetznas.name = "Spetznas";
+        Team TaskForce = new Team();
+        TaskForce.name = "TaskForce";
 
         Arma MP7 = new Arma("MP7", 24, 30, 100, 1, 1100, 900);
         Arma AK47 = new Arma("AK47", 30, 30, 200, 2, 1500, 550);
@@ -12,6 +14,8 @@ public class MeuJogo{
         Player player2 = new Player(M4A1,"mimiza",100,TaskForce);
 
         System.out.println(player1.nome + ", do time " + player1.team.name + " equipou a " + player1.arma.nome + "\n" + player2.nome + ", do time " + player2.team.name + " equipou a " + player2.arma.nome );
+        TaskForce.score = 74;
+        Spetznas.score = 74;
         try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
         System.out.println("...");
         try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
@@ -40,6 +44,9 @@ public class MeuJogo{
         System.out.println("Mas o jogo continua, e os dois jogadores se encontram novamente, e dessa vez, " + player1.nome + " nao quer cometer o mesmo erro, \ne joga uma granada de concussao na direcao de " + player2.nome + ", mas ela consegue desviar, e da mais dano no " + player1.nome + "!!!!");
         try{Thread.sleep(1750);}catch(InterruptedException e){System.out.println(e);}
         System.out.println("Mas " + player1.nome + " consegue se recuperar e atirar em " + player2.nome + " com a " + player1.arma.nome + " e consegue um abate, e o jogo acaba!");
+        player1.darDano(player2, player1.arma);
+        player1.darDano(player2, player1.arma);
+        Spetznas.score++;
         try{Thread.sleep(2450);}catch(InterruptedException e){System.out.println(e);}
         System.out.println("O time " + player1.team.name + " ganhou o jogo em um clutch incrivel de " + player1.nome + "!!!!!");
 
