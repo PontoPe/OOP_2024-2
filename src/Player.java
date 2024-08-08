@@ -9,6 +9,13 @@ public class Player {
     public int mortes = 0;
     public int abates = 0;
 
+    public Player(Arma arma, String nome, int vida, Team team) {
+        this.arma = arma;
+        this.nome = nome;
+        this.vida = vida;
+        this.team = team;
+    }
+
 //    metodos:
     public void atirar() throws InterruptedException {
         arma.atirar();

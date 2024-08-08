@@ -14,6 +14,16 @@ public class Arma {
         return currentTeam;
     }
 
+    public Arma(String nome, int dano, int capacidade, int maxRange, int team, int tempoRecarga, int fireRate) {
+        this.nome = nome;
+        this.dano = dano;
+        this.capacidade = capacidade;
+        this.maxRange = maxRange;
+        this.team = team;
+        this.tempoRecarga = tempoRecarga;
+        this.fireRate = fireRate;
+    }
+
 
     public void atirar() throws InterruptedException {
         if (capacidade > 0) {

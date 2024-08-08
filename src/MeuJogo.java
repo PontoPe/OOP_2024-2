@@ -1,63 +1,47 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class MeuJogo{
     public static void main(String[] args) {
 
-        Team Spetznas = new Team();
-        Spetznas.name = "Spetznas";
-        Spetznas.score = 0;
+        Team Spetznas = new Team("Spetznas", 0);
+        Team TaskForce = new Team("TaskForce", 0);
 
-        Team TaskForce = new Team();
-        TaskForce.name = "TaskForce";
-        TaskForce.score = 0;
+        Arma MP7 = new Arma("MP7", 24, 30, 100, 1, 1100, 900);
+        Arma AK47 = new Arma("AK47", 30, 30, 200, 2, 1500, 550);
+        Arma M4A1 = new Arma("M4A1", 27, 30, 150, 1, 1200, 700);
 
-        Arma MP7 = new Arma();
-        MP7.nome = "MP7";
-        MP7.dano = 24;
-        MP7.capacidade = 30;
-        MP7.maxRange = 100;
-        MP7.tempoRecarga = 1100;
-        MP7.team = 1;
-        MP7.fireRate = 900;
-
-        Arma AK47 = new Arma();
-        AK47.nome = "AK47";
-        AK47.dano = 30;
-        AK47.capacidade = 30;
-        AK47.maxRange = 200;
-        AK47.tempoRecarga = 1500;
-        AK47.team = 2;
-        AK47.fireRate = 550;
-
-        Arma M4A1 = new Arma();
-        M4A1.nome = "M4A1";
-        M4A1.dano = 27;
-        M4A1.capacidade = 30;
-        M4A1.maxRange = 150;
-        M4A1.tempoRecarga = 1200;
-        M4A1.team = 1;
-        M4A1.fireRate = 700;
-
-        Player player1 = new Player();
-        Player player2 = new Player();
-
-        player1.arma = MP7;
-        player1.nome = "PontoPe";
-        player1.vida = 100;
-        player1.team = Spetznas;
-
-        player2.arma = M4A1;
-        player2.nome = "mimiza";
-        player2.vida = 100;
-        player2.team = TaskForce;
+        Player player1 = new Player(MP7,"PontoPe",100,Spetznas);
+        Player player2 = new Player(M4A1,"mimiza",100,TaskForce);
 
         System.out.println(player1.nome + ", do time " + player1.team.name + " equipou a " + player1.arma.nome + "\n" + player2.nome + ", do time " + player2.team.name + " equipou a " + player2.arma.nome );
+        try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("...");
+        try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("...");
+        try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("...");
+        try{Thread.sleep(1000);}catch(InterruptedException e){System.out.println(e);}
 
-        System.out.println("Iniciando o jogo...");
+        System.out.println(".......e falta um abate apenas para acabar o jogo, quem conseguir uma kill agora, vai ganhar tudo!");
+        try{Thread.sleep(2450);}catch(InterruptedException e){System.out.println(e);}
         System.out.println(player1.nome + " vai ao meio de campo, enquanto " + player2.nome + " vai pelo flanco direito!");
+        try{Thread.sleep(1750);}catch(InterruptedException e){System.out.println(e);}
         System.out.println(player2.nome + " avista " + player1.nome + " pelas costas e atira!");
-        System.out.println(player1.nome + " toma " + 2*player2.arma.dano + " de dano e agora tem " + (player1.vida - 2*player2.arma.dano) + " de vida, mas tem tempo de virar para tras e entregar " + 3*player1.arma.dano + " de dano para " + player2.nome + " que por sua vez tem " + (player2.vida - 3*player1.arma.dano) + " de vida.");
-        System.out.println("Mas os dois jogadores conseguem sair vivos da trocacao.");
+        player2.darDano(player1, player2.arma);
+        player2.darDano(player1, player2.arma);
+        try{Thread.sleep(1750);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("mas tem tempo de virar para tras e entregar dois tiros no peito de " + player2.nome);
+        player1.darDano(player2, player1.arma);
+        player1.darDano(player2, player1.arma);
+        player1.darDano(player2, player1.arma);
+        try{Thread.sleep(1750);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("Mas os dois jogadores conseguem sair vivos da trocacao! \nQUE JOGO MALUCO!");
+        try{Thread.sleep(2000);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("depois de muitos tiros errados, "+player1.nome+" fica com "+ (player1.arma.capacidade - 6) + " balas no pente, e " + player2.nome + " com " + (player2.arma.capacidade - 8) + " balas no pente");
+        try{Thread.sleep(2500);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("Mas o jogo continua, e os dois jogadores se encontram novamente, e dessa vez, " + player1.nome + " nao quer cometer o mesmo erro, \ne joga uma granada de concussao na direcao de " + player2.nome + ", mas ela consegue desviar, e da mais dano no " + player1.nome + "!!!!");
+        try{Thread.sleep(1750);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("Mas " + player1.nome + " consegue se recuperar e atirar em " + player2.nome + " com a " + player1.arma.nome + " e consegue um abate, e o jogo acaba!");
+        try{Thread.sleep(2450);}catch(InterruptedException e){System.out.println(e);}
+        System.out.println("O time " + player1.team.name + " ganhou o jogo em um clutch incrivel de " + player1.nome + "!!!!!");
 
     }
 }
