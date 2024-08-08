@@ -2,20 +2,18 @@ public class Player {
 
 //    atributos:
     public static int getTeam;
-    public static Arma arma;
-    private String nome;
-    private int vida;
-    private int team;
+    public Arma arma;
+    public String nome;
+    public int vida;
+    public Team team;
+    public int mortes = 0;
+    public int abates = 0;
 
 //    metodos:
     public void atirar() throws InterruptedException {
         arma.atirar();
     }
     
-    public int getTeam() {
-        return this.team;
-    }
-
     public void equipar() {
         arma.equipar();
     }
@@ -24,8 +22,17 @@ public class Player {
         vida -= dano;
         if (vida <= 0) {
             System.out.println(nome + " morreu!");
+            mortes++;
         } else {
             System.out.println(nome + " tomou " + dano + " de dano e agora tem " + vida + " de vida.");
         }
+    }
+
+    public void darDano (Player receptor, Arma arma) {
+        receptor.tomarDano(arma.dano);
+        if (receptor.vida <= 0) {
+            abates++;
+        }
+
     }
 }

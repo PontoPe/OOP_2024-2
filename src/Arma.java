@@ -34,7 +34,6 @@ public class Arma {
         if (this.team == currentTeam) {
             System.out.println(nome + " equipavel no seu time");
             System.out.println("Equipando " + nome + "...");
-            Player.arma = this;
         } else {
             System.out.println(nome + " não equipavel no seu time");
         }
